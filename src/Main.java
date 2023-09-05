@@ -3,12 +3,17 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) {
 
+        long startTime = System.nanoTime();
+
         String nombreArchivo = "C:\\output\\entrada.csv";
 
         System.out.println(" INSERT INTO pacientes (Pac_Id, Pac_Nombres,Pac_Apellido_Pat,Pac_Apellido_Mat,Edad,Prev_Id,Comu_Id)");
         System.out.println(" VALUES");
 
         System.out.println( leerArchivo(nombreArchivo) );
+
+        long endTime = System.nanoTime();
+        System.out.println("Duración: " + (endTime-startTime)/1e6 + " ms");
     }
 
     public static String leerArchivo(String nombre){
