@@ -25,8 +25,14 @@ public class Main {
             String linea;
             while( (linea = reader.readLine()) != null){
                 sb.append("(");
+
+                linea = " " + linea + " ";
+                linea = linea.replace(" ","\"");
+                linea = linea.replace(";" , " \" , \" ");
+
                 sb.append(linea);
                 sb.append(")");
+                sb.append(",");
                 sb.append("\n");
             }
 
