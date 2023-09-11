@@ -1,4 +1,7 @@
 import java.io.*;
+import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,7 +11,7 @@ public class Main {
         String nombreArchivo = "C:\\output\\entrada.csv";
 
         System.out.println(" INSERT INTO pacientes (Pac_Id, Pac_Nombres,Pac_Apellido_Pat,Pac_Apellido_Mat,Edad,Prev_Id,Comu_Id)");
-        System.out.println(" VALUES");
+        System.out.println(" VALUES (");
 
         System.out.println( leerArchivo(nombreArchivo) );
 
@@ -20,17 +23,28 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         File archivo = new File(nombre);
 
+        String regex = "[0-9]";
+
+
         try {
             BufferedReader reader = new BufferedReader(new FileReader(archivo));
             String linea;
+
             while( (linea = reader.readLine()) != null){
-                sb.append("(");
 
-                linea = " " + linea + " ";
-                linea = linea.replace(" ","\"");
-                linea = linea.replace(";" , " \" , \" ");
+                String lineaToArray [] = linea.split(";");
 
-                sb.append(linea);
+                for( int i = 0; i < lineaToArray.length; i++){
+                    if( !lineaToArray[i].matches(regex) ){
+                        lineaToArray[i] = " ' " + lineaToArray[i] + " ' ";
+                    }
+                }
+
+                linea = Arrays.toString( lineaToArray );
+                linea = linea.replace("[","");
+                linea = linea.replace("]","");
+
+                sb.append( linea );
                 sb.append(")");
                 sb.append(",");
                 sb.append("\n");
