@@ -23,6 +23,7 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         File archivo = new File(nombre);
 
+        // regex de digitos
         String regex = "\\d*";
 
 
