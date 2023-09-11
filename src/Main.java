@@ -8,10 +8,10 @@ public class Main {
 
         long startTime = System.nanoTime();
 
-        String nombreArchivo = "C:\\output\\entrada.csv";
+        String nombreArchivo = "C:\\output\\entradas.csv";
 
         System.out.println(" INSERT INTO pacientes (Pac_Id, Pac_Nombres,Pac_Apellido_Pat,Pac_Apellido_Mat,Edad,Prev_Id,Comu_Id)");
-        System.out.println(" VALUES (");
+        System.out.println(" VALUES ");
 
         System.out.println( leerArchivo(nombreArchivo) );
 
@@ -23,7 +23,7 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         File archivo = new File(nombre);
 
-        String regex = "[0-9]";
+        String regex = "\\d*";
 
 
         try {
@@ -31,12 +31,12 @@ public class Main {
             String linea;
 
             while( (linea = reader.readLine()) != null){
-
+                sb.append("(");
                 String lineaToArray [] = linea.split(";");
 
                 for( int i = 0; i < lineaToArray.length; i++){
                     if( !lineaToArray[i].matches(regex) ){
-                        lineaToArray[i] = " ' " + lineaToArray[i] + " ' ";
+                        lineaToArray[i] = "'" + lineaToArray[i] + "'";
                     }
                 }
 
