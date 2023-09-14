@@ -10,7 +10,7 @@ public class Main {
 
         String nombreArchivo = "C:\\output\\entradas.csv";
 
-        System.out.println(" INSERT INTO pacientes (Pac_Id, Pac_Nombres,Pac_Apellido_Pat,Pac_Apellido_Mat,Edad,Prev_Id,Comu_Id)");
+        System.out.println(" INSERT INTO pacientes (Pac_Id, Pac_Nombres,Pac_Apellido_Paterno,Pac_Apellido_Materno,Pac_Edad,Prev_Id,Comu_Id)");
         System.out.println(" VALUES ");
 
         System.out.println( leerArchivo(nombreArchivo) );
