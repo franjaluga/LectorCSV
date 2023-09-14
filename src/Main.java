@@ -11,6 +11,9 @@ public class Main {
         String nombreArchivo = "C:\\output\\entradas.csv";
 
         System.out.println(" INSERT INTO pacientes (Pac_Id, Pac_Nombres,Pac_Apellido_Paterno,Pac_Apellido_Materno,Pac_Edad,Prev_Id,Comu_Id)");
+        //System.out.println(" INSERT INTO Especialidades (Esp_Id, Esp_Glosa)");
+        //System.out.println(" INSERT INTO Medicos (Med_Id,Med_Nombres,Med_Apellido_Paterno,Med_Apellido_Materno, Med_Edad, Esp_Id)");
+        //System.out.println(" INSERT INTO Atenciones (Ate_Id, Ate_Folio, Ate_Fecha, Med_Id, Prest_Id, Pac_Id)");
         System.out.println(" VALUES ");
 
         System.out.println( leerArchivo(nombreArchivo) );
